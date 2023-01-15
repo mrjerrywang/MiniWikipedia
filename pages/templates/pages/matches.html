@@ -1,0 +1,22 @@
+{% extends 'pages/baseMatch.html' %}
+
+{% block content %}
+
+
+<head>
+    <title>{{game.gameId}}</title>
+</head>
+
+<h1> Show all matches</h1>
+<p><a href="{% url 'createMatch' %}">Add New Match</a></p>
+
+<ol>
+    {%for game in all_matches_list %}
+    <p><a href="{% url 'match' game.pk%}">Game ID: {{game.gameId}}</a> <a href="{% url 'deleteMatch' game.pk %}">(Delete)</a></p>
+    <ul>
+        <li><a href="{% url 'team' game.team1.pk%}">{{game.team1.name}}</a> vs <a href="{% url 'team' game.team1.pk%}">{{game.team2.name}}</a>
+    </ul>
+    {% endfor %}
+</ol>
+
+{% endblock %}

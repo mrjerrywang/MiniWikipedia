@@ -1,0 +1,13 @@
+{% extends 'pages/base.html' %}
+
+{% block content %}
+
+<head>
+    <h1>Match Viewer </h1>
+</head>
+
+<li> {{game.gameId}} </li>
+<ul> <a href="{% url 'team' game.team1.pk%}">{{game.team1.name}}</a> vs <a href="{% url 'team' game.team2.pk%}">{{game.team2.name}}</a> </ul>
+<p><a href="{% url 'updateMatch' game.pk %}">Update Game Information</a></p>
+<p><a href="{% url 'deleteMatch' game.pk %}">Delete Game Information</a></p>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'pages/base.html' %}
+
+{% block content %}
+
+<h1> {{team.name}} ({{team.region}})</h1>
+
+<ui>
+    <img src="{{team.teamIcon}}" style="max-width: 500;">
+    <ol>
+        <li><a href="{% url 'player' team.member1.pk%}">{{team.member1.gameTag}}</a></li>
+        <li><a href="{% url 'player' team.member2.pk%}">{{team.member2.gameTag}}</a></li>
+        <li><a href="{% url 'player' team.member3.pk%}">{{team.member3.gameTag}}</a></li>
+        <li><a href="{% url 'player' team.member4.pk%}">{{team.member4.gameTag}}</a></li>
+        <li><a href="{% url 'player' team.member5.pk%}">{{team.member5.gameTag}}</a></li>
+    </ol>
+</ui>
+<p><a href="{% url 'updateTeam' team.pk %}">Update Team Information</a></p>
+<p><a href="{% url 'deleteTeam' team.pk %}">Delete Team Information</a></p>
+
+{% endblock %}

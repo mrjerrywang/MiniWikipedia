@@ -1,0 +1,16 @@
+{% extends 'pages/base.html' %}
+
+{% block content %}
+
+<head>
+    <title>{{player.gameTag}}</title>
+</head>
+
+<h1>{{player.gameTag}} ({{player.teamName}})</h1>
+
+<h2>Real Name: {{player.name}}</h2>
+<img src="{{player.picture}}" style="max-width: 500;">
+
+<p><a href="{% url 'updatePlayer' player.pk %}">Update Player Information</a></p>
+<p><a href="{% url 'deletePlayer' player.pk %}">Delete Player Information</a></p>
+{% endblock %}
